@@ -23,10 +23,15 @@
             <template #icon>
                 <i class="bi-list-task"></i>
             </template>
-            وظایف
-            <!-- {{ $t('تسک ها') }}-->
+            <!--وظایف-->
+            {{ $t('Todos') }}
         </VSideMenuItem>
-        <router-link to="تست روتر لینک">dhasjkahsdk</router-link>
+        <VSideMenuItem :to="{ name: 'step' }">
+            <template #icon>
+                <i class=""></i>
+            </template>
+            Steps
+        </VSideMenuItem>
     </nav>
 </aside>
 </template>

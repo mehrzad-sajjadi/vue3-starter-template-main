@@ -1,6 +1,6 @@
 <template>
 <router-link
-    v-bind:to="to"
+    :to="to"
     class="list-group-item list-group-item-action d-flex"
     active-class="text-primary bg-primary bg-opacity-10"
 >

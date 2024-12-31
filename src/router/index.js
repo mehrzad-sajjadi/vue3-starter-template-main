@@ -33,6 +33,11 @@ const router = createRouter({
                     path: 'todos',
                     name: 'Todos',
                     component: () => import('@/views/TodosView.vue')
+                },
+                {
+                    path: 'step',
+                    name: 'step',
+                    component: () => import('@/components/step/VStep.vue')
                 }
             ]
         },
