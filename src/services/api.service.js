@@ -117,7 +117,14 @@ class ApiService {
         return instance.delete(url, config);
     }
 
-
+    /**
+     * Post request
+     *
+     * @param {String} url
+     * @param {Object} [data]
+     * @param {AxiosRequestConfig} [config]
+     * @returns {Promise<AxiosResponse>}
+     */
     static post(url, data, config) {
         return instance.post(url, data, config);
     }

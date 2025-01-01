@@ -34,6 +34,4 @@ export default {
     "Dark": "تیره",
     "System": "سیستم",
     "Settings": "تنظیمات",
-    "testimizanim":"متن تستی برای تست تغییر زبان ",
-    "Pagination":"صفحه بندی"
 };

@@ -3,10 +3,9 @@
         <label v-if="$slots.label" class="form-label" :for="id">
             <slot name="label"></slot>
         </label>
-        <!--فیلتر کاربران -->
+
         <div ref="container" :class="inputGroupClassNames">
             <div class="d-flex align-items-center">
-                VAutoComplete
                 <input
                     v-model="search"
                     @input="resetFilteredItems"
@@ -178,11 +177,9 @@
 
             const filteredItems = ref([]);
             const itemsPerPage = 10;
+            let lastIndex = -1;
 
-            // console.log(this.filteredItems);
-            let
-                lastIndex = -1;
-             function addFilteredItems() {
+            function addFilteredItems() {
                 let count = 0;
                 let index;
 
@@ -296,7 +293,6 @@
 
             return {
                 isEmpty,
-
 
                 errors,
 

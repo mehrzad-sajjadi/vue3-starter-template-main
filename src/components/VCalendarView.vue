@@ -25,7 +25,6 @@
             >
                 <slot name="day" :item="item">{{ item.day }}</slot>
             </div>
-
         </div>
     </div>
 </template>
