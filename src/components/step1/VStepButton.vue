@@ -1,35 +1,38 @@
 <template>
-    <div class="d-flex flex-row flex-wrap justify-content-between align-items-center steps-container">
-        <div class="step-line" :style="progressStyle"></div>
-        <div
-            v-for="(step, index) in data.steps"
-            :key="index + 1"
-            class="flex-row text-white d-flex align-items-center justify-content-center bubble"
-            :style="cssStyle"
+<div class="d-flex flex-row flex-wrap justify-content-between align-items-center steps-container">
+    <div class="step-line" :style="progressStyle"></div>
+    <div
+        v-for="(step, index) in data.steps"
+        :key="index + 1"
+        class="flex-row text-white d-flex align-items-center justify-content-center bubble"
+    >
+        <p
+            class="display-6 text-dark d-flex justify-content-center align-items-center rounded-circle"
+            style="width: 100%; height: 100%; background-color: cyan"
         >
-            <p
-                class="display-6 text-dark d-flex justify-content-center align-items-center rounded-circle"
-                style="width: 100%; height: 100%; background-color: cyan"
-            >
-                <span :class="index + 1 == data.currentStep ? 'step-active ' : index + 1 < data.currentStep ? 'step-before ' : ''">{{
-                    step
-                }}</span>
-            </p>
-        </div>
-    </div>
+                <span :class="index + 1 == data.currentStep ? 'step-active ' : index + 1 < data.currentStep ? 'step-before ' : ''">
+                      <i class="fa-solid fa-check" style="color: #dddddd" ></i>
+                    {{
+                        step
+                    }}
+                </span>
 
-    <div class="content">
-        <slot :sendDateToParentBySlot="data.currentStep"></slot>
+        </p>
     </div>
+</div>
 
-    <div class="step-navigation">
-        <button @click="prevStep">PrevStep</button>
-        <button @click="nextStep">NextStep</button>
-    </div>
+<div class="content">
+    <slot :sendDateToParentBySlot="data.currentStep"></slot>
+</div>
+
+<div class="step-navigation">
+    <button @click="prevStep">PrevStep</button>
+    <button @click="nextStep">NextStep</button>
+</div>
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from "vue";
+import {ref, computed, defineProps, defineEmits} from "vue";
 
 const props = defineProps({
     data: Object,
@@ -54,6 +57,7 @@ function prevStep() {
 
 // محاسبه عرض خط بر اساس استپ فعلی
 const progressStyle = computed(() => {
+
     const stepPercentage = 100 / (data.value.steps.length - 1); // درصد هر استپ
     return {
         width: `${(data.value.currentStep - 1) * stepPercentage}%`, // محاسبه عرض خط
@@ -87,6 +91,7 @@ const progressStyle = computed(() => {
     align-items: center;
     border-radius: 50%;
 }
+
 .step-line {
     height: 5px;
     background-color: blue;
@@ -97,14 +102,17 @@ const progressStyle = computed(() => {
     transition: width 0.3s ease; /* انیمیشن برای حرکت نرم خط */
     z-index: 1;
 }
+
 .steps-lists {
     display: flex;
 }
+
 .text {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .step-before {
     background-color: #ff0000;
     color: white;
@@ -115,9 +123,11 @@ const progressStyle = computed(() => {
     align-items: center;
     border-radius: 50%;
 }
+
 .step-navigation {
     margin-top: 16px;
 }
+
 button {
     margin: 0 8px;
     padding: 8px 16px;
@@ -127,6 +137,7 @@ button {
     cursor: pointer;
     border-radius: 4px;
 }
+
 .content {
     margin: 20px 0;
     padding: 20px;

@@ -8,7 +8,7 @@
                 <img src="@/assets/img/nature.jpg" class="img-fluid w-75 rounded" alt="" />
             </div>
             <div v-else-if="sendDateToParentBySlot == 3">
-                <p>این محتوای استپ سوم است.</p>
+                <p>3nd Content</p>
             </div>
         </template>
     </VStepButton>
@@ -21,7 +21,5 @@ import { ref } from "vue";
 const dataSteps = {
     steps: ["step1", "step2", "step3"],
     currentStep: 1,
-    activeColor: "#65a30d",
-    passiveColor: "#84cc16",
 };
 </script>

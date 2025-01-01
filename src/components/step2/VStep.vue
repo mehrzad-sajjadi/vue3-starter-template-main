@@ -1,32 +1,37 @@
 <!-- USE EMIT FOR SHOW CONTENT -->
 <template>
     <h1>Step 2</h1>
-    <VStepButton :data="dataSteps" @stepChanged="updateCurrentStep">
-        <div v-if="currentStep == 1">
-            <h2>استپ اول</h2>
-            <p>این محتوای استپ اول است.</p>
-        </div>
-        <div v-else-if="currentStep == 2">
-            <h2>استپ دوم</h2>
-            <p>این محتوای استپ دوم است.</p>
-        </div>
-        <div v-else-if="currentStep == 3">
-            <h2>استپ سوم</h2>
-            <p>این محتوای استپ سوم است.</p>
-        </div>
-    </VStepButton>
+    <VStepButton :data="dataSteps" @stepChanged="updateCurrentStep"></VStepButton>
+    <div v-if="CurrentStep == 1">
+        <p>First Content</p>
+
+    </div>
+    <div v-else-if="CurrentStep == 2">
+        <img src="@/assets/img/nature.jpg" class="img-fluid w-75 rounded" alt="" />
+    </div>
+    <div v-else-if="CurrentStep.value == 3">
+        <p>3nd Content</p>
+    </div>
+
 </template>
 
 <script setup>
-import VStepButton from "@/components/step1/VStepButton.vue";
+import VStepButton from "@/components/step2/VStepButton.vue";
 import { ref } from "vue";
 
 const dataSteps = {
     steps: ["step1", "step2", "step3"],
     currentStep: 1,
-    activeColor: "#65a30d",
-    passiveColor: "#84cc16",
 };
+
+const CurrentStep = ref(1);
+
+function updateCurrentStep(parameter){
+    CurrentStep.value = parameter;
+    console.log(CurrentStep.value);
+    return CurrentStep ;
+}
+
 </script>
 <style>
 h1 {
